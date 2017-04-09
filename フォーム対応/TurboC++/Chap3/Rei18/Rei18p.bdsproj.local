@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2008/05/09 11:58:25.306.cpp,C:\Users\Asao\Documents\Borland Studio Projects\Unit1.cpp=C:\Users\Asao\Desktop\Cアルゴリズム\フォーム対応\TurboC++\Chap3\Rei18\Rei18.cpp</Transaction>
+    <Transaction>2008/05/09 11:58:25.306.h,C:\Users\Asao\Documents\Borland Studio Projects\Unit1.h=C:\Users\Asao\Desktop\Cアルゴリズム\フォーム対応\TurboC++\Chap3\Rei18\Rei18.h</Transaction>
+    <Transaction>2008/05/09 11:58:25.306.dfm,C:\Users\Asao\Documents\Borland Studio Projects\Unit1.dfm=C:\Users\Asao\Desktop\Cアルゴリズム\フォーム対応\TurboC++\Chap3\Rei18\Rei18.dfm</Transaction>
+    <Transaction>2008/05/09 11:58:29.126.bdsproj,C:\Users\Asao\Documents\Borland Studio Projects\Project1.bdsproj=C:\Users\Asao\Desktop\Cアルゴリズム\フォーム対応\TurboC++\Chap3\Rei18\Rei18p.bdsproj</Transaction>
+  </Transactions>
+</BorlandProject>

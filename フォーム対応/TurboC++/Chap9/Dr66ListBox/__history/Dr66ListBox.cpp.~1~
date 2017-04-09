@@ -1,0 +1,76 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "Dr66ListBox.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TForm1 *Form1;
+//---------------------------------------------------------------------------
+__fastcall TForm1::TForm1(TComponent* Owner)
+	: TForm(Owner)
+{
+}
+//---------------------------------------------------------------------------
+/*
+ * -------------------------
+ *      騎士巡歴の問題     *
+ * -------------------------
+ */
+
+#include <stdio.h>
+#define N 5
+
+int m[N+4][N+4],                    /* 盤面 */
+    dx[8]={2,1,-1,-2,-2,-1,1,2},    /* 騎士の移動ｘ成分 */
+	dy[8]={1,2,2,1,-1,-2,-2,-1};    /* 騎士の移動ｙ成分 */
+
+TListBox *LB;		// リストボックス
+AnsiString outstr;		//　１行出力用
+char cbuf[100];		//	書式変換用
+
+void backtrack(int x,int y)
+{
+    int i,j,k;
+    static int count=0,num=0;
+
+    if (m[x][y]==0){
+        m[x][y]=++count;         /* 訪問順番の記録 */
+		if (count==N*N){
+			sprintf(cbuf,"解%3d",++num); /* 解の表示 */
+			LB->AddItem(AnsiString(cbuf),NULL);
+			for (i=2;i<=N+1;i++){
+				outstr="";
+				for (j=2;j<=N+1;j++){
+					sprintf(cbuf,"%4d",m[i][j]); /* 解の表示 */
+					outstr+=AnsiString(cbuf);
+				}
+				LB->AddItem(outstr,NULL);
+			}
+        }
+        else
+            for (k=0;k<8;k++)           /* 進む位置を選ぶ */
+                backtrack(x+dx[k],y+dy[k]);
+        m[x][y]=0;                      /* １つ前に戻る */
+        count--;
+    }
+}
+
+	void __fastcall TForm1::Button1Click(TObject *Sender)
+{
+	LB=ListBox1;	// リストボックスの取得
+	int i,j;
+
+    for (i=0;i<=N+3;i++)
+        for (j=0;j<=N+3;j++)
+            if (2<=i && i<=N+1 && 2<=j && j<=N+1)
+                m[i][j]=0;      /* 盤面 */
+            else
+                m[i][j]=1;      /* 壁 */
+
+    backtrack(2,2);
+
+}
+//---------------------------------------------------------------------------

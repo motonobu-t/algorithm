@@ -1,0 +1,71 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "Rei1.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TForm1 *Form1;
+//---------------------------------------------------------------------------
+__fastcall TForm1::TForm1(TComponent* Owner)
+	: TForm(Owner)
+{
+}
+//---------------------------------------------------------------------------
+/*
+ * ------------------------------
+ *      ëQâªéÆÅinÇbrÇÃåvéZÅj    *
+ * ------------------------------
+ */
+#include <stdio.h>
+#include <stdarg.h>
+
+long combi(int n,int r)
+{
+    int i;
+    long p=1;
+
+    for (i=1;i<=r;i++)
+        p=p*(n-i+1)/i;
+    return p;
+}
+int LPX,LPY;
+TCanvas *Canvas;
+void Finit(TCanvas* canvas)
+{
+	Canvas=canvas;
+	LPX=0;
+	LPY=0;
+}
+void Printf(char *format,...)
+{
+	char buf[80];
+	int n;
+	va_list ap;
+	va_start(ap,format);
+	n=vsprintf(buf,format,ap);
+	va_end(ap);
+	Canvas->TextOutA(LPX,LPY,buf);
+	LPX=LPX+n*7;
+}
+void PrintfL(void)
+{
+	LPY=LPY+20;
+	LPX=0;
+}
+#define finit() Finit(Canvas)
+
+void __fastcall TForm1::FormPaint(TObject *Sender)
+{
+    int n,r;
+	finit();
+	for (n=0;n<=5;n++) {
+		for (r=0;r<=n;r++){
+			Printf("%dÇb%d=%ld  ",n,r,combi(n,r));
+		}
+		PrintfL();
+	}
+}
+//---------------------------------------------------------------------------

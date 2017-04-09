@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2008/05/11 10:04:57.285.cpp,C:\Users\Asao\Documents\Borland Studio Projects\Unit1.cpp=C:\Users\Asao\Desktop\Cアルゴリズム\フォーム対応\TurboC++\Chap8\Dr56\Dr56.cpp</Transaction>
+    <Transaction>2008/05/11 10:04:57.285.h,C:\Users\Asao\Documents\Borland Studio Projects\Unit1.h=C:\Users\Asao\Desktop\Cアルゴリズム\フォーム対応\TurboC++\Chap8\Dr56\Dr56.h</Transaction>
+    <Transaction>2008/05/11 10:04:57.285.dfm,C:\Users\Asao\Documents\Borland Studio Projects\Unit1.dfm=C:\Users\Asao\Desktop\Cアルゴリズム\フォーム対応\TurboC++\Chap8\Dr56\Dr56.dfm</Transaction>
+    <Transaction>2008/05/11 10:05:00.496.bdsproj,C:\Users\Asao\Documents\Borland Studio Projects\Project1.bdsproj=C:\Users\Asao\Desktop\Cアルゴリズム\フォーム対応\TurboC++\Chap8\Dr56\Dr56p.bdsproj</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,31 @@
+// Rei9.h : Rei9 アプリケーションのメイン ヘッダー ファイル
+//
+#pragma once
+
+#ifndef __AFXWIN_H__
+	#error "PCH に対してこのファイルをインクルードする前に 'stdafx.h' をインクルードしてください"
+#endif
+
+#include "resource.h"       // メイン シンボル
+
+
+// CRei9App:
+// このクラスの実装については、Rei9.cpp を参照してください。
+//
+
+class CRei9App : public CWinApp
+{
+public:
+	CRei9App();
+
+
+// オーバーライド
+public:
+	virtual BOOL InitInstance();
+
+// 実装
+	afx_msg void OnAppAbout();
+	DECLARE_MESSAGE_MAP()
+};
+
+extern CRei9App theApp;

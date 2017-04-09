@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2008/05/09 13:18:06.274.cpp,C:\Users\Asao\Documents\Borland Studio Projects\Unit1.cpp=C:\Users\Asao\Desktop\Cアルゴリズム\フォーム対応\TurboC++\Chap3\Dr20_3\Dr20_3p.cpp</Transaction>
+    <Transaction>2008/05/09 13:18:06.274.h,C:\Users\Asao\Documents\Borland Studio Projects\Unit1.h=C:\Users\Asao\Desktop\Cアルゴリズム\フォーム対応\TurboC++\Chap3\Dr20_3\Dr20_3p.h</Transaction>
+    <Transaction>2008/05/09 13:18:06.274.dfm,C:\Users\Asao\Documents\Borland Studio Projects\Unit1.dfm=C:\Users\Asao\Desktop\Cアルゴリズム\フォーム対応\TurboC++\Chap3\Dr20_3\Dr20_3p.dfm</Transaction>
+    <Transaction>2008/05/09 13:19:23.143.cpp,C:\Users\Asao\Desktop\Cアルゴリズム\フォーム対応\TurboC++\Chap3\Dr20_3\Dr20_3p.cpp=C:\Users\Asao\Desktop\Cアルゴリズム\フォーム対応\TurboC++\Chap3\Dr20_3\Dr20_3.cpp</Transaction>
+    <Transaction>2008/05/09 13:19:23.143.h,C:\Users\Asao\Desktop\Cアルゴリズム\フォーム対応\TurboC++\Chap3\Dr20_3\Dr20_3p.h=C:\Users\Asao\Desktop\Cアルゴリズム\フォーム対応\TurboC++\Chap3\Dr20_3\Dr20_3.h</Transaction>
+    <Transaction>2008/05/09 13:19:23.143.dfm,C:\Users\Asao\Desktop\Cアルゴリズム\フォーム対応\TurboC++\Chap3\Dr20_3\Dr20_3p.dfm=C:\Users\Asao\Desktop\Cアルゴリズム\フォーム対応\TurboC++\Chap3\Dr20_3\Dr20_3.dfm</Transaction>
+    <Transaction>2008/05/09 13:19:33.721.bdsproj,C:\Users\Asao\Documents\Borland Studio Projects\Project1.bdsproj=C:\Users\Asao\Desktop\Cアルゴリズム\フォーム対応\TurboC++\Chap3\Dr20_3\DR20_3p.bdsproj</Transaction>
+  </Transactions>
+</BorlandProject>

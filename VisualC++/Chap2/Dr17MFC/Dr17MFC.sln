@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Dr17MFC", "Dr17MFC\Dr17MFC.vcproj", "{F438D7CE-8E1C-431D-88A6-D892422B1476}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F438D7CE-8E1C-431D-88A6-D892422B1476}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F438D7CE-8E1C-431D-88A6-D892422B1476}.Debug|Win32.Build.0 = Debug|Win32
+		{F438D7CE-8E1C-431D-88A6-D892422B1476}.Release|Win32.ActiveCfg = Release|Win32
+		{F438D7CE-8E1C-431D-88A6-D892422B1476}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

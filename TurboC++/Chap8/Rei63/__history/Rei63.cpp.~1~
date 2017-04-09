@@ -1,0 +1,57 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "Rei63.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TForm1 *Form1;
+//---------------------------------------------------------------------------
+__fastcall TForm1::TForm1(TComponent* Owner)
+	: TForm(Owner)
+{
+}
+//---------------------------------------------------------------------------
+
+/*
+ * -------------------------
+ *      ÷–Ø‹Èü‚»‚Ì‚P     *
+ * -------------------------
+ */
+
+#include "glib.h"
+
+double scale,branch;
+
+void tree(int n,double x0,double y0,double leng,double angle)
+                                        /* ÷–Ø‹Èü‚ÌÄ‹Aè‘±‚« */
+{
+    if (n==0)
+        return;
+
+    setpoint(x0,y0); setangle(angle);
+    move(leng);
+
+    x0=LPX; y0=LPY;
+	tree(n-1,x0,y0,leng/scale,angle-branch);
+    tree(n-1,x0,y0,leng/scale,angle+branch);
+}
+
+void __fastcall TForm1::FormPaint(TObject *Sender)
+{
+    int n;
+    double x0,y0,leng,angle;
+
+    n=8;                /* }‚ÌŸ” */
+    x0=300.0;y0=50.0;   /* ª‚ÌˆÊ’u */
+    leng=100.0;         /* }‚Ì’·‚³ */
+    angle=90.0;         /* }‚ÌŒü‚« */
+    scale=1.4;          /* }‚ÌL‚Ñ—¦ */
+    branch=20.0;        /* }‚Ì•ªŠòŠp */
+
+    ginit(); cls();
+	tree(n,x0,y0,leng,angle);
+}
+//---------------------------------------------------------------------------

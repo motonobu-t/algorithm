@@ -1,0 +1,52 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "Dr62_2.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TForm1 *Form1;
+//---------------------------------------------------------------------------
+__fastcall TForm1::TForm1(TComponent* Owner)
+	: TForm(Owner)
+{
+}
+//---------------------------------------------------------------------------
+
+/*
+ * ------------------------------
+ *       クロス・ステッチ       *
+ * ------------------------------
+ */
+
+#include "turboglib.h"
+
+void stech(int n,double leng)       /* ステッチの再帰手続き */
+{
+    if (n==0)
+        move(leng);
+    else {
+        stech(n-1,leng); turn(-90);
+        stech(n-1,leng); turn(90);
+        stech(n-1,leng); turn(90);
+        stech(n-1,leng); turn(-90);
+        stech(n-1,leng);
+    }
+}
+
+void __fastcall TForm1::FormPaint(TObject *Sender)
+{
+    int    k,
+           n=4;         /* ステッチの次数 */
+    double leng=2.0;    /* ０次の長さ */
+
+    ginit(); cls();
+    setpoint(200,150); setangle(0);
+    for (k=1;k<=4;k++){
+        stech(n,leng);
+        turn(90);
+    }
+}
+//---------------------------------------------------------------------------

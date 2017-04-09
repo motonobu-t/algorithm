@@ -1,0 +1,107 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "Rei9.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TForm1 *Form1;
+//---------------------------------------------------------------------------
+__fastcall TForm1::TForm1(TComponent* Owner)
+	: TForm(Owner)
+{
+}
+//---------------------------------------------------------------------------
+/*
+ * ----------------------------
+ *     台形則による定積分     *
+ * ----------------------------
+ */
+/*
+ * ------------------------------------------
+ *      　　フォーム出力ライブラリ　        *
+ *  TurboC++ VCLフォームアプリケーション版  *
+ * ------------------------------------------
+ */
+
+#include <stdio.h>
+#include <string.h>
+#include <stdarg.h>
+
+int TLPX,TLPY;     /* テキスト描画現在位置 */
+TCanvas *Canvas;   /* グラフィックオブジェクト */
+float fonth,fontw; /* フォントの高さと幅 */
+
+void Finit(TCanvas* canvas)
+{
+    Canvas=canvas;
+    Canvas->Font->Size=14;
+    Canvas->Font->Name="ＭＳ ゴシック";
+    fonth=Canvas->Font->Height;
+    if (fonth<0) {
+        fonth=-fonth;
+    }
+    fontw=fonth/1.8;
+    TLPX=0;
+    TLPY=0;
+}
+void Printf(char *format,...)
+{
+    char buf[80];
+    int n;
+    va_list ap;
+    va_start(ap,format);
+    n=vsprintf(buf,format,ap);
+    va_end(ap);
+    if (TLPX>=80*fontw){
+        TLPX=0;
+        TLPY+=fonth;
+    }
+    if (buf[strlen(buf)-1]=='\n') {
+        buf[strlen(buf)-1]='\0';
+        Canvas->TextOutA(TLPX,TLPY,buf);
+        TLPY+=fonth;
+        TLPX=0;
+    }
+    else {
+        Canvas->TextOutA(TLPX,TLPY,buf);
+        TLPX+=n*fontw;
+    }
+}
+void PrintfL(void)
+{
+    TLPY+=fonth;
+    TLPX=0;
+}
+#define finit() Finit(Canvas)
+#define printf Printf
+#define putchar(x) Printf("%c",x)
+
+
+#include <math.h>
+#include <stdlib.h>
+#define f(x) (sqrt(4-(x)*(x)))   /* 被積分関数 */
+
+void __fastcall TForm1::Button1Click(TObject *Sender)
+{
+    int k;
+	double a,b,n,h,x,s,sum;
+	char *tailptr;
+	a=Edit1->Text.ToInt();
+	b=Edit2->Text.ToInt();
+	n=50;             /* ａ～ｂ間の分割数 */
+    h=(b-a)/n;        /* 区間幅 */
+    x=a; s=0;
+    for (k=1;k<=n-1;k++){
+        x=x+h;
+        s=s+f(x);
+    }
+	sum=h*((f(a)+f(b))/2+s);
+	finit();
+    printf("   /%f\n",b);
+    printf("   |  sqrt(4-x*x) =%f\n",sum);
+	printf("   /%f\n",a);
+}
+//---------------------------------------------------------------------------

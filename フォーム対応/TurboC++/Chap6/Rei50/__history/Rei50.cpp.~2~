@@ -1,0 +1,89 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "Rei50.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TForm1 *Form1;
+//---------------------------------------------------------------------------
+__fastcall TForm1::TForm1(TComponent* Owner)
+	: TForm(Owner)
+{
+}
+//---------------------------------------------------------------------------
+/*
+ * ---------------------------------------
+ *      質疑応答と決定木（配列表現）     *
+ * ---------------------------------------
+ */
+#include <stdio.h>
+#define Max 100
+#define nil -1
+struct tnode {
+    int left;      /* 左へのポインタ */
+	char node[30];  /* CString型で統一 */
+    int right;     /* 右へのポインタ */
+};
+struct tnode a[Max]={{1  ,"芸能人ですか"  ,2},
+					 {3  ,"歌手ですか"    ,4},
+					 {nil,"吉田　茂"      ,nil},
+					 {nil,"井上　陽水"    ,nil},
+					 {5  ,"女優ですか"    ,6},
+					 {nil,"中山　美穂"    ,nil},
+                     {nil,"久米 宏"       ,nil}};
+int lp=6;
+void stoc(AnsiString s,char *p)
+{
+    int i,n;
+	wchar_t buf[80];
+	char *q;
+    n=s.Length();
+	s.WideChar(buf,n);
+	q=(char *)buf;
+	for (i=0;i<2*n;i++) {
+		p[i]=q[i];
+    }
+    p[i]='\0';
+}
+void __fastcall TForm1::Button1Click(TObject *Sender)
+{
+	AnsiString ret;
+	char buf[30];
+	int p,c;
+	do {
+        p=0;
+		while (a[p].left!=nil){          /* 木のサーチ */
+			c=MessageBox(NULL,a[p].node,"",MB_YESNO);
+			if (c==IDYES)
+				p=a[p].left;
+            else
+                p=a[p].right;
+        }
+		c=MessageBox(NULL,a[p].node,"",MB_YESNO);
+
+        if (c==IDNO){               /* 学習機能 */
+			a[lp+1]=a[p];                    /* ノードの移動 */
+										   /* 新しいノードの作成 */
+			ret=InputBox("","あなたの考えは","");
+			stoc(ret,a[lp+2].node) ;
+			a[lp+2].left=a[lp+2].right=nil;
+			sprintf(buf,"%sと%sを区別する質問は",	a[lp+1].node,a[lp+2].node);							/* 質問ノードの作成 */
+			ret=InputBox("",buf,"");
+			stoc(ret,a[p].node);
+			sprintf(buf,"ｙｅｓの項目は%sで良いですか",a[lp+1].node);
+			c=MessageBox(NULL,buf,"",MB_YESNO);
+			if (c==IDYES){          /* 子の接続 */
+				a[p].left=lp+1; a[p].right=lp+2;
+            }
+            else {
+				a[p].left=lp+2; a[p].right=lp+1;
+            }
+            lp=lp+2;
+        }
+	} while (c=MessageBox(NULL,"続けますか","",MB_YESNO),c==IDYES);
+
+}
+//---------------------------------------------------------------------------

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2008/05/09 11:39:42.540.cpp,C:\Users\Asao\Documents\Borland Studio Projects\Unit1.cpp=C:\Users\Asao\Desktop\Cアルゴリズム\フォーム対応\TurboC++\Chap2\Dr14_2ListBox\Dr14_2ListBox.cpp</Transaction>
+    <Transaction>2008/05/09 11:39:42.540.h,C:\Users\Asao\Documents\Borland Studio Projects\Unit1.h=C:\Users\Asao\Desktop\Cアルゴリズム\フォーム対応\TurboC++\Chap2\Dr14_2ListBox\Dr14_2ListBox.h</Transaction>
+    <Transaction>2008/05/09 11:39:42.540.dfm,C:\Users\Asao\Documents\Borland Studio Projects\Unit1.dfm=C:\Users\Asao\Desktop\Cアルゴリズム\フォーム対応\TurboC++\Chap2\Dr14_2ListBox\Dr14_2ListBox.dfm</Transaction>
+    <Transaction>2008/05/09 11:39:53.240.bdsproj,C:\Users\Asao\Documents\Borland Studio Projects\Project1.bdsproj=C:\Users\Asao\Desktop\Cアルゴリズム\フォーム対応\TurboC++\Chap2\Dr14_2ListBox\Dr14_2ListBoxp.bdsproj</Transaction>
+  </Transactions>
+</BorlandProject>

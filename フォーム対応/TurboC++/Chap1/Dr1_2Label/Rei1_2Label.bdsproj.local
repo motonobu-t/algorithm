@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2008/05/09 07:38:45.107.cpp,C:\Users\Asao\Documents\Borland Studio Projects\Unit1.cpp=C:\Users\Asao\Desktop\Cアルゴリズム\フォーム対応\TurboC++\Chap1\Dr1_2Label\Rei1_2Lable.cpp</Transaction>
+    <Transaction>2008/05/09 07:38:45.107.h,C:\Users\Asao\Documents\Borland Studio Projects\Unit1.h=C:\Users\Asao\Desktop\Cアルゴリズム\フォーム対応\TurboC++\Chap1\Dr1_2Label\Rei1_2Lable.h</Transaction>
+    <Transaction>2008/05/09 07:38:45.107.dfm,C:\Users\Asao\Documents\Borland Studio Projects\Unit1.dfm=C:\Users\Asao\Desktop\Cアルゴリズム\フォーム対応\TurboC++\Chap1\Dr1_2Label\Rei1_2Lable.dfm</Transaction>
+    <Transaction>2008/05/09 07:38:51.707.bdsproj,C:\Users\Asao\Documents\Borland Studio Projects\Project1.bdsproj=C:\Users\Asao\Desktop\Cアルゴリズム\フォーム対応\TurboC++\Chap1\Dr1_2Label\Rei1_2Label.bdsproj</Transaction>
+  </Transactions>
+</BorlandProject>

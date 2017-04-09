@@ -1,0 +1,70 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "Dr60.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TForm1 *Form1;
+//---------------------------------------------------------------------------
+__fastcall TForm1::TForm1(TComponent* Owner)
+	: TForm(Owner)
+{
+}
+//---------------------------------------------------------------------------
+/*
+ * --------------------
+ *      íåëÃÉÇÉfÉã    *
+ * --------------------
+ */
+
+#include "turboform.h"
+void rotate(double ax,double ay,double az,double x,double y,double z,
+            double *px,double *py)   /* ÇRéüå≥âÒì]ïœä∑ */
+{
+    double x1,y1,z1,x2,y2;
+    x1=x*cos(ay)+z*sin(ay);          /* Çôé≤âÒÇË */
+    y1=y;
+    z1=-x*sin(ay)+z*cos(ay);
+    x2=x1;                           /* Çòé≤âÒÇË */
+    y2=y1*cos(ax)-z1*sin(ax);
+    *px=x2*cos(az)-y2*sin(az);       /* Çöé≤âÒÇË */
+    *py=x2*sin(az)+y2*cos(az);
+}
+void __fastcall TForm1::Button1Click(TObject *Sender)
+{
+    int k,n;
+    double ax,ay,az,rd=3.14159/180;
+    double x[]={ 0,20,  0, 60,100,60, 0,-999},   /* Çòç¿ïW */
+           z[]={40,60,100,120, 60,20,40,-999},   /* Çöç¿ïW */
+           h=100.0,                              /* çÇÇ≥ */
+           btx[30],bty[30],                      /* íÍñ  */
+           tpx[30],tpy[30];                      /* è„ñ  */
+    ax=35*rd;                       /* Çòé≤âÒÇËÇÃâÒì]äp */
+    ay=-60*rd;                      /* Çôé≤âÒÇËÇÃâÒì]äp */
+    az=0;
+
+    ginit(); cls();
+    window(-320,-200,320,200);
+
+    for (k=0;(int)x[k]!=-999;k++){      /* íÍñ  */
+        rotate(ax,ay,az,x[k],0.0,z[k],&btx[k],&bty[k]);
+        if (k==0)
+            setpoint(btx[k],bty[k]);
+        else
+            moveto(btx[k],bty[k]);
+    }
+    n=k;
+    for (k=0;k<n;k++){                  /* è„ñ  */
+        rotate(ax,ay,az,x[k],h,z[k],&tpx[k],&tpy[k]);
+        if (k==0)
+            setpoint(tpx[k],tpy[k]);
+        else
+            moveto(tpx[k],tpy[k]);
+    }
+    for (k=0;k<n;k++)       /* íÍñ Ç∆è„ñ ÇÃäeì_ÇåãÇ‘ */
+		line(tpx[k],tpy[k],btx[k],bty[k]);
+}
+//---------------------------------------------------------------------------

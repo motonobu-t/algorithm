@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Rei65", "Rei65\Rei65.vcproj", "{ED98B1FF-AB49-4FCE-ABB9-3ACFE1FB592A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ED98B1FF-AB49-4FCE-ABB9-3ACFE1FB592A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{ED98B1FF-AB49-4FCE-ABB9-3ACFE1FB592A}.Debug|Win32.Build.0 = Debug|Win32
+		{ED98B1FF-AB49-4FCE-ABB9-3ACFE1FB592A}.Release|Win32.ActiveCfg = Release|Win32
+		{ED98B1FF-AB49-4FCE-ABB9-3ACFE1FB592A}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
