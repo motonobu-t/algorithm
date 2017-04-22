@@ -1,6 +1,7 @@
 /*
  * ------------------------------
- *      �Q�����in�br�̌v�Z�j    *
+ *      漸化式                   *
+ *   nからrを組み合わせCを算出する   *
  * ------------------------------
  */
 
@@ -14,7 +15,7 @@ void main(void)
 
     for (n=0;n<=5;n++) {
         for (r=0;r<=n;r++)
-            printf("%d�b%d=%ld  ",n,r,combi(n,r));
+            printf("%d‚b%d=%ld  ",n,r,combi(n,r));
         printf("\n");
     }
 }
